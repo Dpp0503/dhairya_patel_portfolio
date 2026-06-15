@@ -1,0 +1,1 @@
+export { certifications } from './profile'

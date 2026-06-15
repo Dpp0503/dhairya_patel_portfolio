@@ -1,0 +1,15 @@
+.playwright-mcp/
+node_modules/
+.venv/
+.playwright/
+.cache/
+.npm/
+.qwen/
+.store/
+.qwen-mcp/
+.agent/
+.env
+.vscode/
+.opencode/
+.agent/
+.qwen/
