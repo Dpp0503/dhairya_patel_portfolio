@@ -19,6 +19,7 @@ export const profile = {
 // ─── EDUCATION ──────────────────────────────────────────────
 export const education: Education[] = [
   {
+    id: 'edu-1',
     degree: "Bachelor of Engineering in Computer Engineering",
     institution: "Vishwakarma Government Engineering College",
     period: "2024 - 2027",
@@ -28,6 +29,7 @@ export const education: Education[] = [
     ]
   },
   {
+    id: 'edu-2',
     degree: "Diploma in Computer Engineering",
     institution: "R.C. Technical Institute",
     period: "2021 - 2023",
@@ -37,6 +39,7 @@ export const education: Education[] = [
     ]
   },
   {
+    id: 'edu-3',
     degree: "SSC",
     institution: "Terf",
     period: "2020",
