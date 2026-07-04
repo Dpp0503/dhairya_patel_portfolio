@@ -26,7 +26,7 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 flex items-center gap-8 h-14 sm:h-header-h">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-10 lg:px-14 flex items-center gap-8 h-14 sm:h-header-h">
         <a
           href="#hero"
           className="relative font-display text-lg font-bold tracking-tight text-text-primary hover:text-primary transition-colors duration-300"
@@ -59,8 +59,9 @@ export default function Header() {
               </a>
             )}
             <a
-              href="/resume.pdf"
-              download
+              href={profile.resume || '/resume.pdf'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-1.5 border border-jp-gold/30 rounded hover:bg-jp-gold/10 text-jp-gold font-display tracking-[0.15em] uppercase text-sm transition-colors duration-300"
             >
               CV
@@ -70,7 +71,7 @@ export default function Header() {
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden ml-auto p-2 text-text-secondary hover:text-text-primary transition-colors"
+          className="md:hidden ml-auto p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors"
           aria-label="Toggle menu"
         >
           {menuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -94,22 +95,23 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="/resume.pdf"
-            download
+            href={profile.resume || '/resume.pdf'}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
             className="block px-4 py-3 mt-2 text-base font-display tracking-[0.2em] uppercase text-jp-gold border border-jp-gold/30 text-center rounded-lg hover:bg-jp-gold/10 transition-all"
           >
-            Download CV
+            View CV
           </a>
           <div className="flex items-center justify-center gap-6 pt-4 pb-2">
             {profile.github && (
-              <a href={`https://${profile.github}`} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-jp-gold transition-colors p-2">
+              <a href={`https://${profile.github}`} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-jp-gold transition-colors p-3 min-h-[44px] min-w-[44px] inline-flex items-center justify-center">
                 <span className="sr-only">GitHub</span>
                 <Github size={20} />
               </a>
             )}
             {profile.linkedin && (
-              <a href={`https://${profile.linkedin}`} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-jp-gold transition-colors p-2">
+              <a href={`https://${profile.linkedin}`} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-jp-gold transition-colors p-3 min-h-[44px] min-w-[44px] inline-flex items-center justify-center">
                 <span className="sr-only">LinkedIn</span>
                 <Linkedin size={20} />
               </a>

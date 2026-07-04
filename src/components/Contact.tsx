@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { EnsoBrush, DividerDots } from './Enso'
+import { EnsoBrush } from './Enso'
 import { profile } from '@/data/profile'
 
 const socialLinks = [
@@ -13,13 +13,11 @@ export default function Contact() {
   if (!profile.email && !socialLinks.length) return null
 
   return (
-    <section id="contact" className="py-section relative">
+    <section id="contact" className="py-section relative overflow-hidden">
       <div className="absolute inset-0 bg-pattern-kasumi bg-kasumi pointer-events-none opacity-60" />
       <div className="absolute inset-0 bg-gradient-to-b from-background-dark/40 to-transparent pointer-events-none" />
 
       <div className="section-container">
-        <DividerDots />
-
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,10 +49,10 @@ export default function Contact() {
                       href={`mailto:${profile.email}`}
                       whileHover={{ x: 6 }}
                       transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                      className="group inline-flex items-center gap-3 font-display text-lg font-bold text-jp-gold hover:text-primary transition-colors"
+                      className="group inline-flex items-center gap-3 font-display text-base sm:text-lg font-bold text-jp-gold hover:text-primary transition-colors break-all md:break-normal"
                     >
                       <motion.span
-                        className="w-5 h-px bg-jp-gold/50"
+                        className="w-5 h-px bg-jp-gold/50 shrink-0"
                         whileHover={{ width: 32 }}
                         transition={{ type: 'spring', stiffness: 200, damping: 15 }}
                       />
@@ -63,14 +61,14 @@ export default function Contact() {
                   )}
 
                   {!!socialLinks.length && (
-                    <div className="flex items-center gap-6 pt-2">
+                    <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-2">
                       {socialLinks.map((link) => (
                         <motion.a
                           key={link.label}
                           href={link.href}
                           target="_blank" rel="noopener noreferrer"
                           whileHover={{ x: 3 }}
-                          className="group flex items-center gap-2 text-base font-display tracking-[0.2em] uppercase text-text-muted hover:text-jp-gold transition-colors"
+                          className="group flex items-center gap-2 py-2 min-h-[44px] text-base font-display tracking-[0.2em] uppercase text-text-muted hover:text-jp-gold transition-colors"
                         >
                           <span className="w-3 h-px bg-text-muted group-hover:bg-jp-gold transition-colors" />
                           {link.label}

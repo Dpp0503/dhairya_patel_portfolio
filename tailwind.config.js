@@ -51,9 +51,9 @@ export default {
         body: ['Inter', 'sans-serif'],
       },
       fontSize: {
-        'display-xl': ['clamp(4rem, 14vw, 11rem)', { lineHeight: '0.85', letterSpacing: '-0.06em' }],
-        'display-lg': ['clamp(3rem, 9vw, 7rem)', { lineHeight: '0.9', letterSpacing: '-0.05em' }],
-        'display-md': ['clamp(2rem, 6vw, 4rem)', { lineHeight: '1', letterSpacing: '-0.03em' }],
+        'display-xl': ['clamp(2rem, 10.5vw, 11rem)', { lineHeight: '0.9', letterSpacing: '-0.04em' }],
+        'display-lg': ['clamp(1.75rem, 7.5vw, 7rem)', { lineHeight: '0.95', letterSpacing: '-0.03em' }],
+        'display-md': ['clamp(1.5rem, 5.5vw, 4rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
         'display-sm': ['clamp(1.25rem, 3.5vw, 2.25rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
       },
       spacing: {

@@ -9,7 +9,7 @@ const projectAccents = [
   { dot: 'bg-accent-indigo', line: 'border-accent-indigo/20', hover: 'hover:border-accent-indigo/30', numColor: 'text-accent-indigo/20', glow: 'rgba(74,124,124,0.04)' },
   { dot: 'bg-jp-vermillion', line: 'border-jp-vermillion/20', hover: 'hover:border-jp-vermillion/30', numColor: 'text-jp-vermillion/20', glow: 'rgba(184,92,74,0.04)' },
 ]
-
+ 
 const itemVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.98 },
   visible: (i: number) => ({
@@ -28,7 +28,7 @@ export default function Projects() {
   if (!projects.length) return null
 
   return (
-    <section id="projects" className="py-section relative">
+    <section id="projects" className="pt-section pb-0 relative">
       <div className="absolute inset-0 bg-pattern-shoji bg-shoji pointer-events-none opacity-40" />
       <div className="absolute inset-0 bg-gradient-to-b from-background-dark/50 via-transparent to-background-dark/50 pointer-events-none" />
 
@@ -62,7 +62,11 @@ export default function Projects() {
                 viewport={{ once: true, amount: 0.2 }}
                 whileHover={{ y: -3 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                className={`group relative border ${accent.line} ${accent.hover} bg-background-card/80 backdrop-blur-sm rounded-2xl p-7 sm:p-9 transition-colors duration-500 overflow-hidden cursor-default`}
+                onClick={() => {
+                  const url = project.github || project.link
+                  if (url) window.open(url, '_blank', 'noopener,noreferrer')
+                }}
+                className={`group relative border ${accent.line} ${accent.hover} bg-background-card/80 backdrop-blur-sm rounded-2xl p-7 sm:p-9 transition-colors duration-500 overflow-hidden cursor-pointer`}
               >
                 <div className="absolute top-0 right-0 w-48 h-48 rounded-full pointer-events-none"
                   style={{ background: `radial-gradient(circle, ${accent.glow} 0%, transparent 70%)` }}
@@ -91,8 +95,9 @@ export default function Projects() {
                           <motion.a
                             href={project.github}
                             target="_blank" rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
                             whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-                            className="p-2 text-text-muted hover:text-text-primary rounded-lg hover:bg-white/5 transition-colors"
+                            className="p-2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-text-muted hover:text-text-primary rounded-lg hover:bg-white/5 transition-colors"
                             aria-label="Source code"
                           >
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
@@ -102,8 +107,9 @@ export default function Projects() {
                           <motion.a
                             href={project.link}
                             target="_blank" rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
                             whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-                            className="p-2 text-text-muted hover:text-text-primary rounded-lg hover:bg-white/5 transition-colors"
+                            className="p-2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-text-muted hover:text-text-primary rounded-lg hover:bg-white/5 transition-colors"
                             aria-label="Live site"
                           >
                             <ArrowUpRight size={17} />

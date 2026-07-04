@@ -28,7 +28,7 @@ export default function Achievements() {
   if (!achievements.length) return null
 
   return (
-    <section id="achievements" className="py-section relative">
+    <section id="achievements" className="pt-section pb-0 relative">
       <div className="absolute inset-0 bg-pattern-hex bg-hex pointer-events-none opacity-40" />
       <div className="absolute inset-0 bg-gradient-to-b from-background-dark/50 via-transparent to-background-dark/50 pointer-events-none" />
 

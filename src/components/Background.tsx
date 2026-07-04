@@ -155,7 +155,7 @@ export default function Background() {
   if (!hasAny) return null
 
   return (
-    <section id="background" className="py-section relative">
+    <section id="background" className="pt-section pb-0 relative">
       <div className="absolute inset-0 bg-pattern-scale bg-scale pointer-events-none opacity-50" />
 
       <div className="section-container relative z-10">

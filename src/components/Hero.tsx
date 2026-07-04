@@ -4,9 +4,9 @@ import { profile } from '@/data/profile'
 
 const links = [
   profile.email && { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-  profile.github && { label: 'GitHub', value: profile.github, href: `https://${profile.github}` },
-  { label: 'Resume', value: 'Download CV', href: '/resume.pdf', download: true },
-].filter(Boolean) as { label: string; value: string; href: string; download?: boolean }[]
+  profile.github && { label: 'GitHub', value: profile.github, href: `https://${profile.github}`, external: true },
+  { label: 'Resume', value: 'View CV', href: profile.resume || '/resume.pdf', external: true },
+].filter(Boolean) as { label: string; value: string; href: string; external?: boolean; download?: boolean }[]
 
 const containerVariants = {
   hidden: {},
@@ -46,7 +46,7 @@ export default function Hero() {
         <EnsoBrush className="w-full h-full text-jp-gold/80" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 pt-28 pb-20 md:pt-36 md:pb-28">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-10 lg:px-14 pt-28 pb-20 md:pt-36 md:pb-28">
         <div className="grid md:grid-cols-12 gap-6 md:gap-10">
           <div className="md:col-span-1 hidden md:flex flex-col items-center pt-4">
             <motion.span
@@ -80,7 +80,7 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="font-display text-display-xl font-extrabold text-text-primary leading-[0.85] tracking-[-0.06em]"
+              className="font-display text-display-xl font-extrabold text-text-primary leading-[0.95] sm:leading-[0.85] tracking-[-0.03em] sm:tracking-[-0.06em]"
             >
               {profile.name}
             </motion.h1>
@@ -89,10 +89,10 @@ export default function Hero() {
               variants={itemVariants}
               className="mt-1 md:mt-3"
             >
-              <p className="font-display text-display-lg font-bold text-text-muted leading-[0.9] tracking-[-0.05em]">
+              <p className="font-display text-display-lg font-bold text-text-muted leading-[0.95] sm:leading-[0.9] tracking-[-0.03em] sm:tracking-[-0.05em]">
                 Engineer
               </p>
-              <p className="font-display text-display-lg font-bold text-text-secondary leading-[0.9] tracking-[-0.05em]">
+              <p className="font-display text-display-lg font-bold text-text-secondary leading-[0.95] sm:leading-[0.9] tracking-[-0.03em] sm:tracking-[-0.05em]">
                 Build Systems
               </p>
             </motion.div>
@@ -118,19 +118,19 @@ export default function Hero() {
                     <motion.a
                       key={link.label}
                       href={link.href}
-                      target={link.href.startsWith('http') ? '_blank' : undefined}
-                      rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      target={link.external || link.href.startsWith('http') ? '_blank' : undefined}
+                      rel={link.external || link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       download={link.download}
                       variants={linkVariants}
                       custom={i}
                       whileHover={{ x: 4 }}
                       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                      className="group flex items-center gap-6 sm:gap-10 py-3 xl:py-0 border-b xl:border-b-0 border-border xl:border-l xl:border-border hover:border-jp-gold/30 transition-colors duration-300"
+                      className="group flex items-center gap-6 sm:gap-10 py-3 min-h-[44px] xl:py-0 border-b xl:border-b-0 border-border xl:border-l xl:border-border hover:border-jp-gold/30 transition-colors duration-300"
                     >
                       <span className="xl:hidden font-display text-sm tracking-[0.25em] uppercase text-text-muted group-hover:text-jp-gold transition-colors min-w-[5rem]">
                         {link.label}
                       </span>
-                      <span className="text-base sm:text-lg text-text-secondary group-hover:text-text-primary transition-colors px-0 xl:px-4 break-all sm:break-normal">
+                      <span className="text-base sm:text-lg text-text-secondary group-hover:text-text-primary transition-colors px-0 xl:px-4 break-all xl:break-normal">
                         {link.value}
                       </span>
                       {i === 0 && (

@@ -14,6 +14,7 @@ export const profile = {
   linkedin: 'linkedin.com/in/dhairya-patel-702386209',
   leetcode: 'leetcode.com/u/dpp050305/',
   codeforces: 'codeforces.com/profile/Dppatel05',
+  resume: 'https://drive.google.com/file/d/1E4509cJAIjOUJrPNXLpl7tTzjoR95ja4/view?usp=sharing',
 }
 
 // ─── EDUCATION ──────────────────────────────────────────────
