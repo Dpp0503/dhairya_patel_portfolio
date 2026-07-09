@@ -7,7 +7,7 @@ const links = [
   profile.github && { label: 'GitHub', value: profile.github, href: `https://${profile.github}`, external: true },
   { label: 'Resume', value: 'View CV', href: profile.resume || '/resume.pdf', external: true },
 ].filter(Boolean) as { label: string; value: string; href: string; external?: boolean; download?: boolean }[]
-
+  
 const containerVariants = {
   hidden: {},
   visible: {
